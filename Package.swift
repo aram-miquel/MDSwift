@@ -9,14 +9,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "Ink",
+    name: "MDSwift",
     products: [
-        .library(name: "Ink", targets: ["Ink"]),
-        .executable(name: "ink-cli", targets: ["InkCLI"])
+        .library(name: "MDSwift", targets: ["MDSwift"]),
     ],
     targets: [
-        .target(name: "Ink"),
-        .target(name: "InkCLI", dependencies: ["Ink"]),
-        .testTarget(name: "InkTests", dependencies: ["Ink"])
+        .target(name: "MDSwift"),
+        .testTarget(name: "InkTests", dependencies: ["MDSwift"])
     ]
 )

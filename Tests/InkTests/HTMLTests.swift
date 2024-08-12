@@ -1,11 +1,11 @@
 /**
-*  Ink
+*  MDSwift
 *  Copyright (c) John Sundell 2019
 *  MIT license, see LICENSE file for details
 */
 
 import XCTest
-import Ink
+import MDSwift
 
 final class HTMLTests: XCTestCase {
     func testTopLevelHTML() {
@@ -106,10 +106,10 @@ final class HTMLTests: XCTestCase {
 
     func testHTMLEntities() {
         let html = MarkdownParser().html(from: """
-        Hello &amp; welcome to &lt;Ink&gt;
+        Hello &amp; welcome to &lt;MDSwift&gt;
         """)
 
-        XCTAssertEqual(html, "<p>Hello &amp; welcome to &lt;Ink&gt;</p>")
+        XCTAssertEqual(html, "<p>Hello &amp; welcome to &lt;MDSwift&gt;</p>")
     }
 }
 

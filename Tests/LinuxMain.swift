@@ -1,12 +1,12 @@
 /**
-*  Ink
+*  MDSwift
 *  Copyright (c) John Sundell 2019
 *  MIT license, see LICENSE file for details
 */
 
 import XCTest
-import InkTests
+import MDSwiftTests
 
 var tests = [XCTestCaseEntry]()
-tests += InkTests.allTests()
+tests += MDSwiftTests.allTests()
 XCTMain(tests)

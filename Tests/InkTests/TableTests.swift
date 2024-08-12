@@ -1,11 +1,11 @@
 /**
- *  Ink
+ *  MDSwift
  *  Copyright (c) John Sundell 2020
  *  MIT license, see LICENSE file for details
  */
 
 import XCTest
-import Ink
+import MDSwift
 
 final class TableTests: XCTestCase {
     func testTableWithoutHeader() {

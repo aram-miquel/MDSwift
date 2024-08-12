@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="Logo.png" width="278" max-width="90%" alt=“Ink” />
+    <img src="Logo.png" width="278" max-width="90%" alt=“MDSwift” />
 </p>
 
 <p align="center">
@@ -13,27 +13,27 @@
     </a>
 </p>
 
-Welcome to **Ink**, a fast and flexible Markdown parser written in Swift. It can be used to convert Markdown-formatted strings into HTML, and also supports metadata parsing, as well as powerful customization options for fine-grained post-processing. It was built with a focus on Swift-based web development and other HTML-centered workflows.
+Welcome to **MDSwift**, a fast and flexible Markdown parser written in Swift. It can be used to convert Markdown-formatted strings into HTML, and also supports metadata parsing, as well as powerful customization options for fine-grained post-processing. It was built with a focus on Swift-based web development and other HTML-centered workflows.
 
-Ink is used to render all articles on [swiftbysundell.com](https://swiftbysundell.com).
+MDSwift is used to render all articles on [swiftbysundell.com](https://swiftbysundell.com).
 
 ## Converting Markdown into HTML
 
-To get started with Ink, all you have to do is to import it, and use its `MarkdownParser` type to convert any Markdown string into efficiently rendered HTML:
+To get started with MDSwift, all you have to do is to import it, and use its `MarkdownParser` type to convert any Markdown string into efficiently rendered HTML:
 
 ```swift
-import Ink
+import MDSwift
 
 let markdown: String = ...
 let parser = MarkdownParser()
 let html = parser.html(from: markdown)
 ```
 
-That’s it! The resulting HTML can then be displayed as-is, or embedded into some other context — and if that’s all you need Ink for, then no more code is required.
+That’s it! The resulting HTML can then be displayed as-is, or embedded into some other context — and if that’s all you need MDSwift for, then no more code is required.
 
 ## Automatic metadata parsing
 
-Ink also comes with metadata support built-in, meaning that you can define key/value pairs at the top of any Markdown document, which will then be automatically parsed into a Swift dictionary.
+MDSwift also comes with metadata support built-in, meaning that you can define key/value pairs at the top of any Markdown document, which will then be automatically parsed into a Swift dictionary.
 
 To take advantage of that feature, call the `parse` method on `MarkdownParser`, which gives you a `Markdown` value that both contains any metadata found within the parsed Markdown string, as well as its HTML representation:
 
@@ -61,7 +61,7 @@ The above format is also supported by many different Markdown editors and other 
 
 ## Powerful customization
 
-Besides its [built-in parsing rules](#markdown-syntax-supported), which aims to cover the most common features found in the various flavors of Markdown, you can also customize how Ink performs its parsing through the use of *modifiers*.
+Besides its [built-in parsing rules](#markdown-syntax-supported), which aims to cover the most common features found in the various flavors of Markdown, you can also customize how MDSwift performs its parsing through the use of *modifiers*.
 
 A modifier is defined using the `Modifier` type, and is associated with a given `Target`, which determines the kind of Markdown fragments that it will be used for. For example, here’s how an H3 tag could be added before each code block:
 
@@ -78,24 +78,24 @@ let markdown: String = ...
 let html = parser.html(from: markdown)
 ```
 
-Modifiers are passed both the HTML that Ink generated for the given fragment, and its raw Markdown representation as well — both of which can be used to determine how each fragment should be customized.
+Modifiers are passed both the HTML that MDSwift generated for the given fragment, and its raw Markdown representation as well — both of which can be used to determine how each fragment should be customized.
 
 ## Performance built-in
 
-Ink was designed to be as fast and efficient as possible, to enable hundreds of full-length Markdown articles to be parsed in a matter of seconds, while still offering a fully customizable API as well. Two key characteristics make this possible:
+MDSwift was designed to be as fast and efficient as possible, to enable hundreds of full-length Markdown articles to be parsed in a matter of seconds, while still offering a fully customizable API as well. Two key characteristics make this possible:
 
-1. Ink aims to get as close to `O(N)` complexity as possible, by minimizing the amount of times it needs to read the Markdown strings that are passed to it, and by optimizing its HTML rendering to be completely linear. While *true* `O(N)` complexity is impossible to achieve when it comes to Markdown parsing, because of its very flexible syntax, the goal is to come as close to that target as possible.
-2. A high degree of memory efficiency is achieved thanks to Swift’s powerful `String` API, which Ink makes full use of — by using string indexes, ranges and substrings, rather than performing unnecessary string copying between its various operations.
+1. MDSwift aims to get as close to `O(N)` complexity as possible, by minimizing the amount of times it needs to read the Markdown strings that are passed to it, and by optimizing its HTML rendering to be completely linear. While *true* `O(N)` complexity is impossible to achieve when it comes to Markdown parsing, because of its very flexible syntax, the goal is to come as close to that target as possible.
+2. A high degree of memory efficiency is achieved thanks to Swift’s powerful `String` API, which MDSwift makes full use of — by using string indexes, ranges and substrings, rather than performing unnecessary string copying between its various operations.
 
 ## System requirements
 
-To be able to successfully use Ink, make sure that your system has Swift version 5.2 (or later) installed. If you’re using a Mac, also make sure that `xcode-select` is pointed at an Xcode installation that includes the required version of Swift, and that you’re running macOS Catalina (10.15) or later.
+To be able to successfully use MDSwift, make sure that your system has Swift version 5.2 (or later) installed. If you’re using a Mac, also make sure that `xcode-select` is pointed at an Xcode installation that includes the required version of Swift, and that you’re running macOS Catalina (10.15) or later.
 
-Please note that Ink **does not** officially support any form of beta software, including beta versions of Xcode and macOS, or unreleased versions of Swift.
+Please note that MDSwift **does not** officially support any form of beta software, including beta versions of Xcode and macOS, or unreleased versions of Swift.
 
 ## Installation
 
-Ink is distributed using the [Swift Package Manager](https://swift.org/package-manager). To install it into a project, simply add it as a dependency within your `Package.swift` manifest:
+MDSwift is distributed using the [Swift Package Manager](https://swift.org/package-manager). To install it into a project, simply add it as a dependency within your `Package.swift` manifest:
 
 ```swift
 let package = Package(
@@ -107,23 +107,23 @@ let package = Package(
 )
 ```
 
-Then import Ink wherever you’d like to use it:
+Then import MDSwift wherever you’d like to use it:
 
 ```swift
-import Ink
+import MDSwift
 ```
 
 For more information on how to use the Swift Package Manager, check out [this article](https://www.swiftbysundell.com/articles/managing-dependencies-using-the-swift-package-manager), or [its official documentation](https://github.com/apple/swift-package-manager/tree/master/Documentation).
 
 ## Command line tool
 
-Ink also ships with a simple but useful command line tool that lets you convert Markdown to HTML directly from the command line.
+MDSwift also ships with a simple but useful command line tool that lets you convert Markdown to HTML directly from the command line.
 
 To install it, clone the project and run `make`:
 
 ```
-$ git clone https://github.com/johnsundell/Ink.git
-$ cd Ink
+$ git clone https://github.com/johnsundell/MDSwift.git
+$ cd MDSwift
 $ make
 ```
 
@@ -153,11 +153,11 @@ A Markdown string can be passed directly using the `-m` or `--markdown` flag:
 $ ink -m "*Hello World*"
 ```
 
-You can of course also build your own command line tools that utilizes Ink in more advanced ways by importing it as a package.
+You can of course also build your own command line tools that utilizes MDSwift in more advanced ways by importing it as a package.
 
 ## Markdown syntax supported
 
-Ink supports the following Markdown features:
+MDSwift supports the following Markdown features:
 
 - Headings (H1 - H6), using leading pound signs, for example `## H2`.
 - Italic text, by surrounding a piece of text with either an asterisk (`*`), or an underscore (`_`). For example `*Italic text*`.
@@ -182,34 +182,34 @@ Ink supports the following Markdown features:
 | Row 2  | Cell 2   |
 ```
 
-Please note that, being a very young implementation, Ink does not fully support all Markdown specs, such as [CommonMark](https://commonmark.org). Ink definitely aims to cover as much ground as possible, and to include support for the most commonly used Markdown features, but if complete CommonMark compatibility is what you’re looking for — then you might want to check out tools like [CMark](https://github.com/commonmark/cmark).
+Please note that, being a very young implementation, MDSwift does not fully support all Markdown specs, such as [CommonMark](https://commonmark.org). MDSwift definitely aims to cover as much ground as possible, and to include support for the most commonly used Markdown features, but if complete CommonMark compatibility is what you’re looking for — then you might want to check out tools like [CMark](https://github.com/commonmark/cmark).
 
 ## Internal architecture
 
-Ink uses a highly modular [rule-based](https://www.swiftbysundell.com/articles/rule-based-logic-in-swift) internal architecture, to enable new rules and formatting options to be added without impacting the system as a whole.
+MDSwift uses a highly modular [rule-based](https://www.swiftbysundell.com/articles/rule-based-logic-in-swift) internal architecture, to enable new rules and formatting options to be added without impacting the system as a whole.
 
 Each Markdown fragment is individually parsed and rendered by a type conforming to the internal `Readable` and `HTMLConvertible` protocols — such as `FormattedText`, `List`, and `Image`.
 
 To parse a part of a Markdown document, each fragment type uses a `Reader` instance to read the Markdown string, and to make assertions about its structure. Errors are [used as control flow](https://www.swiftbysundell.com/articles/using-errors-as-control-flow-in-swift) to signal whether a parsing operation was successful or not, which in turn enables the parent context to decide whether to advance the current `Reader` instance, or whether to rewind it.
 
-A good place to start exploring Ink’s implementation is to look at the main `MarkdownParser` type’s `parse` method, and to then dive deeper into the various `Fragment` implementations, and the `Reader` type.
+A good place to start exploring MDSwift’s implementation is to look at the main `MarkdownParser` type’s `parse` method, and to then dive deeper into the various `Fragment` implementations, and the `Reader` type.
 
 ## Credits
 
-Ink was originally written by [John Sundell](https://twitter.com/johnsundell) as part of the Publish suite of static site generation tools, which is used to build and generate [Swift by Sundell](https://swiftbysundell.com). The other tools that make up the Publish suite will also be open sourced soon.
+MDSwift was originally written by [John Sundell](https://twitter.com/johnsundell) as part of the Publish suite of static site generation tools, which is used to build and generate [Swift by Sundell](https://swiftbysundell.com). The other tools that make up the Publish suite will also be open sourced soon.
 
 The Markdown format was created by [John Gruber](https://twitter.com/gruber). You can find [more information about it here](https://daringfireball.net/projects/markdown).
 
 ## Contributions and support
 
-Ink is developed completely in the open, and your contributions are more than welcome.
+MDSwift is developed completely in the open, and your contributions are more than welcome.
 
-Before you start using Ink in any of your projects, it’s highly recommended that you spend a few minutes familiarizing yourself with its documentation and internal implementation, so that you’ll be ready to tackle any issues or edge cases that you might encounter.
+Before you start using MDSwift in any of your projects, it’s highly recommended that you spend a few minutes familiarizing yourself with its documentation and internal implementation, so that you’ll be ready to tackle any issues or edge cases that you might encounter.
 
-Since this is a very young project, it’s likely to have many limitations and missing features, which is something that can really only be discovered and addressed as more people start using it. While Ink is used in production to render all of [Swift by Sundell](https://swiftbysundell.com), it’s recommended that you first try it out for your specific use case, to make sure it supports the features that you need.
+Since this is a very young project, it’s likely to have many limitations and missing features, which is something that can really only be discovered and addressed as more people start using it. While MDSwift is used in production to render all of [Swift by Sundell](https://swiftbysundell.com), it’s recommended that you first try it out for your specific use case, to make sure it supports the features that you need.
 
 This project does not come with GitHub Issues-based support, and users are instead encouraged to become active participants in its continued development — by fixing any bugs that they encounter, or by improving the documentation wherever it’s found to be lacking.
 
-If you wish to make a change, [open a Pull Request](https://github.com/JohnSundell/Ink/pull/new) — even if it just contains a draft of the changes you’re planning, or a test that reproduces an issue — and we can discuss it further from there.
+If you wish to make a change, [open a Pull Request](https://github.com/JohnSundell/MDSwift/pull/new) — even if it just contains a draft of the changes you’re planning, or a test that reproduces an issue — and we can discuss it further from there.
 
-Hope you’ll enjoy using **Ink**!
+Hope you’ll enjoy using **MDSwift**!
